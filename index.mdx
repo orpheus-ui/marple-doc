@@ -1,20 +1,91 @@
 ---
-title: "Introduction"
-description: "Welcome to your project"
+title: "What Marple is"
+description: "A plain-language introduction to Marple, AssistWorld's lead engine."
+icon: "circle-info"
 ---
 
-Write a short description of your product here. What it does, who it's for, and what they can accomplish with it.
+Marple finds US companies that are actively hiring a Virtual Assistant or Executive Assistant, works out whether they are worth approaching, finds the right person to email, writes a first draft of that email, and puts the whole thing in a queue for you to review.
 
-<Tip>
-  Ready to make this your own? Start by editing this page. Update your `docs.json` file to customize your site. Then fill out the [Quickstart](/quickstart) page.
-</Tip>
+It never sends anything on its own. A person always clicks the button.
 
-<Card title="Quickstart" icon="rocket" href="/quickstart">
-  This card links to the quickstart page in your project.
-</Card>
-<Card title="Components" icon="puzzle-piece" href="https://mintlify.com/docs/components">
-  Add cards, callouts, steps, tabs, and more to design and structure your pages.
-</Card>
-<Card title="Settings" icon="gear" href="https://mintlify.com/docs/organize/settings">
-  Set your site name, branding, and navigation in the `docs.json` file.
+## Why hiring signals matter
+
+The idea behind Marple is simple. A company that has posted a job for a Virtual Assistant has already told the world two things: they need admin help, and they are willing to pay for it. They have a confirmed need, right now, with budget attached.
+
+That is a much warmer starting point than a cold list. AssistWorld can fill that same need faster and at lower cost with vetted talent from Indonesia and the Philippines. Marple's job is to find those companies the day they raise their hand, and hand you a ready-to-send email.
+
+## What a working day looks like
+
+You open Marple, look at the queue of new leads, and go down the list. For each one you either approve it, reject it, or edit the draft email first and then approve. Approved leads become sendable. You send them, and replies come back to your inbox.
+
+That is the whole job. Everything else in this guide is detail around those few actions.
+
+## The eight stages
+
+Marple runs on a schedule in the background. Each run moves job postings through eight stages:
+
+<Steps>
+  <Step title="Discover">
+    Marple checks job boards, company career pages, and LinkedIn for new VA and EA postings.
+  </Step>
+  <Step title="Dedupe">
+    Postings already in the system are dropped, so the same company does not appear twice.
+  </Step>
+  <Step title="Classify">
+    AI reads each posting and decides whether the company is a genuine prospect, a competitor, or a job board repost. It also gives a fit score from 1 to 10.
+  </Step>
+  <Step title="Enrich">
+    For promising leads, Marple looks up the decision-maker's name, job title, and email address.
+  </Step>
+  <Step title="Draft">
+    AI writes a personalized outreach email referencing the specific role and company.
+  </Step>
+  <Step title="Review">
+    The lead lands in your queue. This is where you come in.
+  </Step>
+  <Step title="Send">
+    Once you approve and click Send, the email goes out.
+  </Step>
+  <Step title="Track">
+    Opens, replies, and bounces come back and update the lead's status.
+  </Step>
+</Steps>
+
+Stages one through five happen without you. Stage six is your job. Stages seven and eight happen after you say yes.
+
+## The three screens
+
+Marple has three screens, and you can reach all of them from the bar across the top.
+
+<CardGroup cols={3}>
+  <Card title="Leads" icon="inbox" href="/leads-queue">
+    The main queue. Where you will spend nearly all your time.
+  </Card>
+
+  <Card title="Pipeline" icon="chart-simple" href="/pipeline">
+    Counts by status, and a history of every background run.
+  </Card>
+
+  <Card title="Settings" icon="gear" href="/settings/overview">
+    Configuration and connected services. Super admins only.
+  </Card>
+</CardGroup>
+
+There is also the **Composer**, a chat bar pinned to the bottom of the Leads and Pipeline screens. You can type plain English at it to filter the table or ask questions.
+
+## Two kinds of account
+
+| Role | Can do |
+| --- | --- |
+| **User** | Everything in the Leads queue: review, edit drafts, approve, reject, send. Trigger a run manually. Use the Composer. View the Pipeline screen. |
+| **Super admin** | All of the above, plus the Settings screen: connecting services, changing search terms and scoring, and managing who has access. |
+
+If you do not see a **Settings** link in the top bar, you have a User account. That is normal and it is not a problem, it just means someone else handles configuration.
+
+## The one rule worth remembering
+
+Marple will never email anyone without a person approving it first. There is no automatic send, no "approve everything" scheduled job, and no way for the AI to send on its own initiative. Even the bulk approve button, which moves many leads at once, only marks them as approved. Sending is still a separate, deliberate action.
+
+<Card title="Start here" icon="play" href="/first-look">
+  New to Marple? The next page walks you through signing in and your first ten minutes.
 </Card>

@@ -1,0 +1,130 @@
+---
+title: "Outreach settings"
+description: "Choosing a send channel and setting up Gmail, Resend, or Instantly."
+icon: "paper-plane"
+---
+
+This tab decides how approved emails physically leave the building. Three options, each suiting a different way of working.
+
+## Choosing a channel
+
+<CardGroup cols={3}>
+  <Card title="Your own SMTP" icon="envelope">
+    Sends from your real mailbox. Replies land in your normal inbox. Best for low volume and genuine one-to-one outreach.
+  </Card>
+
+  <Card title="Resend" icon="bolt">
+    An email API sending from a domain you verify. Good deliverability, no sequences.
+  </Card>
+
+  <Card title="Instantly.ai" icon="repeat">
+    A cold outreach platform handling follow-up sequences, send throttling, inbox rotation, and open and reply tracking. Best for volume.
+  </Card>
+</CardGroup>
+
+There is also a **Fallback channel** dropdown. If the primary send fails, Marple automatically tries the fallback. Setting one is worth the two seconds it takes.
+
+## Sender identity
+
+Two fields used by SMTP and Resend sends:
+
+- **Sender email**, the From address recipients see
+- **From name**, the display name beside it
+
+## Setting up Gmail or Google Workspace
+
+The most common setup, and the one with a step people reliably get wrong.
+
+<Warning>
+  You cannot use your normal Google password. Google blocks that. You need an App Password, which requires 2-Step Verification to be switched on first.
+</Warning>
+
+<Steps>
+  <Step title="Turn on 2-Step Verification">
+    Go to [myaccount.google.com/security](https://myaccount.google.com/security), find **2-Step Verification**, and complete the setup. App Passwords do not exist as an option until this is done.
+  </Step>
+  <Step title="Open App passwords">
+    Back on the Security page, search for or navigate to **App passwords**. It sits under the 2-Step Verification section.
+  </Step>
+  <Step title="Create one">
+    Name it something recognisable such as `Marple`. Google shows a 16-character password, usually displayed in four groups of four.
+  </Step>
+  <Step title="Copy it immediately">
+    It is shown once. Copy it now and store it in your password manager. Spaces in the display are for readability, they are not part of the password.
+  </Step>
+  <Step title="Fill in the SMTP fields in Marple">
+    Host `smtp.gmail.com`, port `587`, security **STARTTLS (port 587)**, username your full email address including the domain, password the App Password you just created.
+  </Step>
+  <Step title="Click Test">
+    Under **Connection**. This connects and logs in without sending anything. A success message means you are ready.
+  </Step>
+</Steps>
+
+<Note>
+  Gmail rewrites the From address to whichever mailbox authenticated, or one of its verified aliases. If you set a sender address Gmail does not recognise, recipients see the authenticated address instead. This is Google's behaviour, not a Marple limitation.
+</Note>
+
+### Other SMTP providers
+
+The same fields work for any provider. You need the host, the port, and whether it uses STARTTLS (usually port 587) or SSL (usually port 465). Your provider's documentation will list these.
+
+## Setting up Resend
+
+<Steps>
+  <Step title="Create an account">
+    Go to [resend.com](https://resend.com) and sign up.
+  </Step>
+  <Step title="Add and verify your domain">
+    Under **Domains**, add the domain you will send from. Resend gives you DNS records to add at your domain registrar. This step matters most: without verification, deliverability is poor and messages land in spam.
+  </Step>
+  <Step title="Wait for verification">
+    DNS changes usually propagate within minutes but can take longer. Resend shows the status.
+  </Step>
+  <Step title="Create an API key">
+    Under **API Keys**, click **Create API Key**. Copy it, it starts with `re_`.
+  </Step>
+  <Step title="Paste into Marple and test">
+    Settings, Outreach tab, the **Resend** field. Make sure the sender email uses your verified domain.
+  </Step>
+</Steps>
+
+## Setting up Instantly.ai
+
+Instantly is a full cold outreach platform. Rather than sending directly, Marple pushes approved leads into a campaign you have already built there.
+
+<Steps>
+  <Step title="Create an account">
+    Go to [instantly.ai](https://instantly.ai) and sign up. This is a paid product.
+  </Step>
+  <Step title="Connect your sending mailboxes">
+    Instantly sends through mailboxes you connect. Follow their setup and let the warmup process run for a couple of weeks before sending volume. Skipping warmup is the fastest route to a burnt domain.
+  </Step>
+  <Step title="Create a campaign">
+    Build the campaign Marple's leads will feed into, including any follow-up sequence.
+  </Step>
+  <Step title="Get your API key">
+    In Instantly, go to Settings and find the **Integrations** or **API** section. Generate a key and copy it.
+  </Step>
+  <Step title="Get the campaign ID">
+    Open the campaign. The ID appears in the browser address bar, a long string of letters, numbers, and dashes. Copy it.
+  </Step>
+  <Step title="Paste both into Marple">
+    Settings, Outreach tab. The API key goes in the **Instantly** field, the ID in **Campaign ID**. Test the key.
+  </Step>
+</Steps>
+
+<Note>
+  When using Instantly, opens and replies flow back into Marple automatically and update lead statuses. With SMTP and Resend, Marple knows the email was sent but cannot see what happened next, so those statuses stay at Sent.
+</Note>
+
+## Which one to pick
+
+| Situation | Recommendation |
+| --- | --- |
+| Just starting, low volume | Your own SMTP. Simplest, replies come straight to you. |
+| Moderate volume, own domain | Resend. Better deliverability than a personal mailbox. |
+| High volume with follow-ups | Instantly. Sequences and tracking justify the cost. |
+
+<Card title="Next: LinkedIn settings" icon="arrow-right" href="/settings/linkedin">
+  Optional, and the most fiddly part of setup.
+</Card>

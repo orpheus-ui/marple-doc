@@ -1,0 +1,77 @@
+---
+title: "The Pipeline screen"
+description: "Lead counts, run history, and reading whether the engine is healthy."
+icon: "chart-simple"
+---
+
+Where the Leads queue shows individual companies, the Pipeline screen shows the shape of the whole operation. Use it to check the engine is actually working and to see where leads are piling up.
+
+## Lead flow
+
+A table counting leads in each status, with how long ago each last changed. Click any row to jump to the Leads queue filtered to that status.
+
+Read it as a funnel. Healthy numbers shrink as you move down: many new, fewer approved, fewer sent, a handful replied. Two patterns are worth watching for.
+
+<AccordionGroup>
+  <Accordion title="New is climbing and Approved is flat" icon="arrow-trend-up">
+    Leads are arriving faster than anyone is reviewing them. Either block out review time or raise the minimum fit score so fewer, better leads come through.
+  </Accordion>
+
+  <Accordion title="Approved is large and Sent is small" icon="pause">
+    People are approving but not sending. Usually this means approved leads are missing contact emails, since the Send button stays disabled without one. Filter to Approved and check the Contact column.
+  </Accordion>
+</AccordionGroup>
+
+## Run history
+
+Every pipeline run, most recent first. Each row covers one run.
+
+| Column | Meaning |
+| --- | --- |
+| **Started** | When the run began. |
+| **Status** | Green completed, amber running, red failed. |
+| **Trigger** | A hand icon means a person clicked Run now. A robot icon means the schedule. |
+| **Found** | Total postings retrieved from all sources. |
+| **Sources** | How many sources returned results, as a ratio. Hover for a per-source breakdown. |
+| **New** | Postings that became genuinely new leads. |
+| **Dupes** | Postings already in the system, dropped. |
+| **Rejected** | Auto-rejected as competitors, aggregators, or low scorers. |
+| **Errors** | Problems during the run. Hover to read them. |
+
+### Reading these numbers sensibly
+
+A high **Dupes** number is normal and good. It means the same roles are still listed and Marple is correctly refusing to show them to you twice. It does not mean anything is broken.
+
+A high **Rejected** number is also usually fine. Most VA job postings genuinely come from staffing agencies rather than end employers, and filtering those out is the point.
+
+The number to actually watch is **New**. If it is zero across several consecutive runs, something is wrong. Check the Sources column for a source returning errors, and see [Troubleshooting](/troubleshooting).
+
+<Tip>
+  The Sources ratio turns amber with a warning triangle when a source found nothing or errored. Hover it for the per-source list: red means the source failed, amber means it worked but returned nothing. One quiet source is unremarkable, several at once suggests a configuration problem.
+</Tip>
+
+## Triggering a run yourself
+
+Click the status dot in the top bar, then **Run now**. The dot turns amber and pulses while the run works. Runs typically take one to two minutes and new leads appear on their own when it finishes.
+
+The same panel shows the last run's results and when the next scheduled run is due.
+
+<Note>
+  Running manually does not disturb the schedule. It is useful before a review session so you are working from fresh data, or after changing search terms in Settings when you want to see the effect immediately.
+</Note>
+
+## Backend logs
+
+Super admins see an extra panel at the bottom with live technical logs. Filter by Info, Warnings, or Errors only, download them as a text file, or clear the buffer.
+
+This is diagnostic detail, and most people never need it. Its practical use is capturing evidence when something misbehaves: set the filter to Errors only, download, and attach the file to your bug report.
+
+There is also a small document icon at the end of each run history row that opens the logs for that specific run.
+
+<Warning>
+  Logs are held in memory and disappear when the backend restarts. If a run misbehaved and you want the detail, download it soon rather than coming back tomorrow. Run history, error counts, and per-source numbers are stored properly and are not affected.
+</Warning>
+
+<Card title="Next: Settings" icon="arrow-right" href="/settings/overview">
+  For super admins, everything that can be configured.
+</Card>

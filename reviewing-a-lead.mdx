@@ -1,0 +1,116 @@
+---
+title: "Reviewing a lead"
+description: "The expanded panel, editing drafts, fixing contacts, and sending."
+icon: "magnifying-glass"
+---
+
+Clicking a row opens a panel split into two columns. The left is everything Marple learned about the company. The right is the email it wants to send. Your job is to read the left and decide whether the right is good enough.
+
+## Left column: the intelligence
+
+### AI assessment
+
+A classification badge plus one sentence explaining the AI's reasoning. Hover the badge for a reminder of what target, competitor, and aggregator mean.
+
+If the lead was auto-rejected, a dashed box appears here explaining exactly why: classified as a competitor, identified as an aggregator repost, scored below the minimum, or rejected by a teammate. This is genuinely useful when you are wondering why a promising-looking company never reached your queue.
+
+Below the reasoning, any pain signals appear as small tags.
+
+### Job description
+
+The original posting text in a scrollable box. Skim it, the AI summary is good but the posting often contains a detail worth mentioning in your email.
+
+The **Original posting** link opens the live listing in a new tab. Worth clicking when you are unsure whether a company is genuine, since the real page usually settles it in seconds.
+
+<Note>
+  If you see "No description captured for this posting", the source did not expose the full text. The AI is instructed to judge from company and job title alone in that case rather than penalising the lead. A missing description is a gap in scraping, not a signal about the company.
+</Note>
+
+### Contact
+
+The decision-maker's name, title, email, and which service found it. If a LinkedIn profile was found, there is a link to it.
+
+There are two ways to fix a missing contact:
+
+<Steps>
+  <Step title="Search again">
+    Click **Find contact**, or **Search again** if one already exists. Marple retries the lookup services. Give it a few seconds.
+  </Step>
+  <Step title="Enter one manually">
+    Type an address into the email field and press Enter, or click **Save email**. Useful when you have found the right person yourself on the company website.
+  </Step>
+</Steps>
+
+<Tip>
+  For small companies, the About or Team page on their own website is often faster than any automated lookup. Marple accepts whatever you type, so there is no reason to leave a strong lead unsent because the automation missed.
+</Tip>
+
+## Right column: the draft
+
+A subject line and a body, both fully editable. Click into either and type.
+
+When you change anything, a **Save edits** button appears. Your changes are not stored until you click it. Navigating away without saving loses them.
+
+### Regenerating
+
+The **Regenerate** button asks the AI for a fresh draft in one of three tones:
+
+| Tone | Character |
+| --- | --- |
+| **Professional** | Measured and formal. The safe default. |
+| **Casual** | Warmer and more conversational. Suits small businesses and startups. |
+| **Direct** | Short and to the point. Suits busy executives and roles where the pain is obvious. |
+
+Regenerating replaces whatever is in the editors, including your unsaved edits. Save first if you want to keep them.
+
+A small badge next to the heading shows which AI model wrote the current draft.
+
+<Note>
+  If you see an amber warning that draft generation failed, the AI was unavailable when this lead was processed. Just regenerate, or write the email yourself. It is not a sign of a problem with the lead.
+</Note>
+
+## Making the decision
+
+The buttons at the bottom right change depending on the lead's status.
+
+<AccordionGroup>
+  <Accordion title="On a new lead" icon="circle">
+    **Approve** moves it to Approved and makes it sendable. **Reject** removes it from your working queue. Neither sends anything.
+  </Accordion>
+
+  <Accordion title="On an approved lead" icon="circle-check">
+    **Send** delivers the email immediately. It is greyed out until the lead has both a contact email and a draft. **Reject** is still available if you change your mind.
+  </Accordion>
+
+  <Accordion title="On a sent lead" icon="paper-plane">
+    No action buttons. The email is gone. From here, status changes come from tracking, or you set Converted manually when a deal closes.
+  </Accordion>
+</AccordionGroup>
+
+## A review routine that works
+
+<Steps>
+  <Step title="Filter to urgent, score 8 and up">
+    Turn on **Urgent only** and drag the score slider to 8. This is your highest-value slice and it is usually short.
+  </Step>
+  <Step title="Work through those first">
+    Expand each one, read the reasoning and the draft, edit if needed, approve.
+  </Step>
+  <Step title="Drop the urgent filter, keep score at 8">
+    Same treatment for strong but less time-pressured leads.
+  </Step>
+  <Step title="Lower the score to 5 if you have time">
+    Amber leads need more reading. Some are genuinely good, the AI was just cautious.
+  </Step>
+  <Step title="Send your approved batch">
+    Filter by status **Approved**, then work down the list sending. Right-click and choose Send outreach is quickest.
+  </Step>
+</Steps>
+
+<Warning>
+  Send one at a time and glance at each draft as you go. It is the last checkpoint before a real email reaches a real person, and it costs a couple of seconds per lead.
+</Warning>
+
+<Card title="Next: the Composer" icon="arrow-right" href="/composer">
+  Filter and query the queue by typing plain English.
+</Card>

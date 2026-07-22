@@ -1,0 +1,86 @@
+---
+title: "How Marple decides"
+description: "Classifications, fit scores, pain signals, and the URGENT flag explained."
+icon: "brain"
+---
+
+Every lead in your queue has been judged by AI before you see it. Understanding what those judgements mean makes your review much faster, because you learn which ones to trust and which ones to check.
+
+## Classification: the first question
+
+Before scoring anything, Marple asks what kind of organisation posted this job. There are three possible answers.
+
+<CardGroup cols={3}>
+  <Card title="Target" icon="circle-check" horizontal>
+    A real US business hiring a VA, EA, or admin assistant for themselves. This is who AssistWorld sells to. Only targets reach your queue as live prospects.
+  </Card>
+
+  <Card title="Competitor" icon="circle-xmark" horizontal>
+    Another VA agency, staffing firm, BPO, or recruiter. Automatically rejected, never contacted.
+  </Card>
+
+  <Card title="Aggregator" icon="circle-minus" horizontal>
+    A job board or listing site reposting someone else's role, not the actual employer. Automatically rejected.
+  </Card>
+</CardGroup>
+
+You will see this as a coloured badge when you expand a lead. Green is target, red is competitor, grey is aggregator.
+
+<Note>
+  Competitors and aggregators are rejected automatically, before a human sees them. They still appear if you filter by **Rejected** status, which is useful for spot-checking that the AI is drawing the line in the right place.
+</Note>
+
+## Fit score: how good a prospect
+
+Every lead gets a number from 1 to 10. This rates how well the company matches what AssistWorld offers, and it is colour coded the same way everywhere in the app.
+
+| Score | Colour | What it means |
+| --- | --- | --- |
+| **8 to 10** | Green | Strong fit. Small or mid-sized US business, role is clearly suited to offshore support such as admin, scheduling, data entry, or customer support. Minimal live-hours requirement. |
+| **5 to 7** | Amber | Decent fit with a caveat. Perhaps some overlap hours are required, or the role is slightly specialised. Worth reading before deciding. |
+| **1 to 4** | Red | Weak fit. Large enterprise, unusual requirements, needs in-person presence, or the posting is too vague to judge. |
+| **?** | Grey outline | The AI could not classify this one, usually because the language model was unavailable. Needs manual review. |
+
+<Warning>
+  The score rates the **job posting**, not eligibility. A competitor can still score highly, because the posting itself may look like an ideal VA role. Always check the classification badge alongside the score, they answer different questions.
+</Warning>
+
+### Where the cutoff sits
+
+There is a minimum fit score set in Settings. Target leads scoring below it are rejected automatically and never reach your queue. If you feel you are seeing too much rubbish, or suspect good leads are being filtered out, that threshold is what to adjust. See [Pipeline settings](/settings/pipeline).
+
+## Pain signals
+
+When you expand a lead you may see small grey tags under the AI's reasoning. These are pain signals, specific hints that this company is feeling the problem AssistWorld solves. Things like language suggesting urgency, indications the company is small and stretched, mentions of cost pressure, or tasks that are obviously offshore-friendly.
+
+Use them as talking points. If a signal says the role has been reposted, that is worth referencing in your email, and it is often the strongest thing you can lead with.
+
+## The URGENT badge
+
+A bright orange **URGENT** badge next to a company name means the role has been open for longer than the urgency threshold, 21 days by default.
+
+This is the single most useful signal in the app. A role open for three weeks means the company has tried and failed to fill it. They are frustrated, they have probably reviewed unsuitable candidates, and they are far more receptive to a different approach than they were on day one.
+
+Prioritise urgent leads.
+
+## Contact status
+
+The Contact column tells you whether Marple found a real person to email.
+
+| Indicator | Meaning |
+| --- | --- |
+| Green tick with a name | Name and email both found. Ready to send. |
+| Amber cross with a name | A name was found but no email address. You will need to supply one before sending. |
+| Red cross reading "Missing" | Nothing found. Search again, or add an email manually. |
+
+Leads without contacts still reach your queue rather than being discarded, on the basis that a good prospect is worth a couple of minutes of manual lookup. See [Reviewing a lead](/reviewing-a-lead) for how to fill in a missing contact.
+
+## Where the email draft comes from
+
+The draft is written by AI using three inputs: the job posting itself, whatever contact details were found, and a block of background about AssistWorld that a super admin maintains in Settings.
+
+That third input is why drafts sometimes feel generic. If every email is vague about pricing or the talent pool, the fix is not to rewrite each draft by hand, it is to improve the shared context so every future draft gets better. That is covered in [AI settings](/settings/ai).
+
+<Card title="Next: reviewing a lead" icon="arrow-right" href="/reviewing-a-lead">
+  The full review workflow, step by step.
+</Card>

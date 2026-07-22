@@ -1,0 +1,114 @@
+---
+title: "The Leads queue"
+description: "Every column, filter, and shortcut on the main screen."
+icon: "table-list"
+---
+
+This is the screen you will spend nearly all your time on. It is a table of leads, one row per company, with a filter bar above it and a count of how many leads match.
+
+## Reading the table
+
+| Column | What it shows |
+| --- | --- |
+| **Company** | The company name, with an arrow on the left showing whether the row is expanded. An orange URGENT badge appears here when the role has been open a long time. |
+| **Role** | The job title from the posting. Long titles are shortened, hover to see the full text. |
+| **Score** | The fit score, 1 to 10, colour coded green, amber, or red. A grey `?` means classification failed. |
+| **Source** | Where the posting was found: LinkedIn, a job board, or a company career page. |
+| **Contact** | Whether a decision-maker was found. Green tick means name and email, amber cross means name only, red means nothing. |
+| **Posted** | How long ago the role went live, shown as "2 days ago". |
+| **Status** | Where the lead sits in the process. See the status table below. |
+
+At the far right of each row, hovering reveals a green tick and a red cross for instant approve and reject. These act immediately with no confirmation, so use them only when you are sure.
+
+## The seven statuses
+
+<AccordionGroup>
+  <Accordion title="New" icon="circle">
+    Fresh from a pipeline run, waiting for you. This is your inbox.
+  </Accordion>
+
+  <Accordion title="Approved" icon="circle-check">
+    You have said yes. The lead is sendable but nothing has gone out yet.
+  </Accordion>
+
+  <Accordion title="Sent" icon="paper-plane">
+    The email has left. Now you wait.
+  </Accordion>
+
+  <Accordion title="Opened" icon="envelope-open">
+    The recipient opened it. Only appears when sending through a channel that tracks opens.
+  </Accordion>
+
+  <Accordion title="Replied" icon="reply">
+    They wrote back. Check your actual inbox, the reply goes there, not into Marple.
+  </Accordion>
+
+  <Accordion title="Converted" icon="handshake">
+    The lead became a customer. Set manually when a deal closes.
+  </Accordion>
+
+  <Accordion title="Rejected" icon="circle-xmark">
+    Either you rejected it, or the AI auto-rejected it as a competitor, an aggregator, or a low scorer. Nothing is ever deleted, so rejected leads stay browsable.
+  </Accordion>
+</AccordionGroup>
+
+## Filtering
+
+The bar above the table narrows what you see. Filters combine, so setting several applies all of them at once.
+
+<Steps>
+  <Step title="Search box">
+    Free text across company name, role, and contact. Type and wait a moment, results update on their own.
+  </Step>
+  <Step title="Status dropdown">
+    Defaults to **Queue (all)**. Pick a single status to see only those leads.
+  </Step>
+  <Step title="Source dropdown">
+    Filter to one source, useful when you want to check whether a particular job board is producing anything worthwhile.
+  </Step>
+  <Step title="Score slider">
+    Drag right to raise the minimum. Setting it to 8 shows only strong prospects.
+  </Step>
+  <Step title="Urgent only toggle">
+    Shows just the long-open roles. This plus a score of 8 is the highest-value slice in the app.
+  </Step>
+</Steps>
+
+When any filter is on, a **Clear** button appears at the end of the bar with a badge counting how many are active. Click it to reset everything.
+
+<Tip>
+  Filters live in the page address, so you can bookmark a filtered view or paste it to a colleague and they will see exactly the same slice.
+</Tip>
+
+## Approving many leads at once
+
+When filters are active, a button appears in the top right reading **Approve all matching**, with a count.
+
+This is worth understanding precisely, because it does not do quite what the label suggests. It approves every lead with status **New** that matches your **score** and **source** filters only. Your status, urgent, and search filters are ignored by this action.
+
+So if you filter to "score 8 or higher" and click it, every new lead scoring 8 or higher gets approved, including ones not currently visible because of a search term you typed. The count on the button tells you the true number, so read it before confirming.
+
+<Warning>
+  A confirmation dialog always appears first, stating exactly how many leads will be affected. Read that number. Bulk approve only moves leads to Approved, it does not send anything, but approving hundreds of leads you have not read defeats the point of having a human in the loop.
+</Warning>
+
+## The right-click menu
+
+Right-clicking any row gives you a shortcut menu:
+
+- **Approve**, on new leads
+- **Send outreach**, on approved leads that have both a contact email and a draft
+- **Reject**, on new or approved leads
+- **Regenerate draft**, with a choice of professional, casual, or direct tone
+- **Copy contact email**, straight to your clipboard
+- **Open job posting**, opens the original listing in a new tab
+
+This is the fastest way to work through a batch you have already read.
+
+## Paging
+
+The queue shows a limited number of leads at a time. If there are more, page controls appear at the bottom right. Narrowing your filters usually beats paging through.
+
+<Card title="Next: reviewing a lead" icon="arrow-right" href="/reviewing-a-lead">
+  What is inside an expanded row, and how to edit a draft.
+</Card>
