@@ -1,0 +1,99 @@
+---
+title: "Pipeline settings"
+description: "Run frequency, scoring thresholds, search keywords, and company boards."
+icon: "timer"
+---
+
+This tab controls what Marple looks for and how strictly it filters. These are the settings that most change what lands in your queue.
+
+## Schedule and scoring
+
+<AccordionGroup>
+  <Accordion title="Scrape interval" icon="clock">
+    Hours between automatic runs. Six is the default and works well. Running much more often mostly produces duplicates, since job postings do not appear that quickly.
+  </Accordion>
+
+  <Accordion title="Minimum fit score" icon="filter">
+    A slider from 1 to 10. Target leads scoring below this are auto-rejected and never reach your queue.
+
+    Five is a sensible default. Raise it if you are drowning in mediocre leads, lower it if the queue is too thin. Change it by one point at a time and look at the results before changing again.
+  </Accordion>
+
+  <Accordion title="Urgent threshold" icon="triangle-exclamation">
+    How many days a role stays open before earning the orange URGENT badge. Twenty-one is the default and matches the point at which most companies have concluded their usual hiring approach is not working.
+  </Accordion>
+
+  <Accordion title="Max posting age" icon="calendar">
+    Postings older than this are skipped at collection time. Set to 0 for no limit. Postings with no date always pass through.
+
+    Note this interacts awkwardly with the urgent threshold: setting max age below the urgent threshold means you will never see an urgent lead, because those postings get dropped before they can qualify.
+  </Accordion>
+</AccordionGroup>
+
+## Search terms
+
+### Job title keywords
+
+A list of tags. A posting is kept when its title contains one of them. This is the main control over what counts as a VA or EA role.
+
+Add terms you want, remove ones producing noise. Sensible entries include variations like "virtual assistant", "executive assistant", "administrative assistant", and "personal assistant".
+
+<Warning>
+  Be careful adding broad terms. Adding "assistant" alone will pull in dental assistants, lab assistants, and shop assistants, which is a lot of rubbish for the AI to reject. Prefer specific phrases.
+</Warning>
+
+### Job board categories
+
+Different from the above. These terms are sent as queries to job board services before any title filtering happens. Think of them as the search box on a job site: broader category words such as "assistant", "customer support", or "bookkeeper".
+
+The flow is: these terms fetch a pool of postings, then job title keywords filter that pool.
+
+## LinkedIn search
+
+Applies only to the LinkedIn source, and only when a session is configured.
+
+| Field | Purpose |
+| --- | --- |
+| **Search keywords** | Terms for the LinkedIn job search. |
+| **Locations** | Countries to search, each searched separately per run. "United States" is the usual entry. |
+| **Remote jobs only** | Restricts results to remote positions, which are naturally more compatible with offshore support. |
+
+## Adzuna live search
+
+Adzuna is a live job-search index that returns genuinely new postings each run, where several free aggregators return a static feed of the same recent jobs. That makes it one of the better sources for finding companies nobody has contacted yet.
+
+<Steps>
+  <Step title="Register at developer.adzuna.com">
+    Go to [developer.adzuna.com](https://developer.adzuna.com) and sign up. It is free.
+  </Step>
+  <Step title="Find your credentials">
+    Adzuna gives you two values, an **Application ID** and an **Application Key**.
+  </Step>
+  <Step title="Combine them with a colon">
+    Marple expects one string in the form `app_id:app_key`. If your ID is `abc123` and your key is `xyz789`, enter `abc123:xyz789` exactly, with no spaces.
+  </Step>
+  <Step title="Set the country code">
+    `us` for the United States. Others include `gb`, `ca`, and `au`.
+  </Step>
+  <Step title="Save and test">
+    Leave the key empty at any time to skip this source entirely.
+  </Step>
+</Steps>
+
+## Company boards
+
+A watchlist of specific companies whose career pages get checked directly each run.
+
+This is not the main search. Job boards and LinkedIn already sweep broadly. The reason this list exists is that applicant tracking systems such as Greenhouse, Lever, and Ashby only expose one company at a time, so there is no way to search across all of them. Listing a company here polls its careers page directly, which catches roles earlier and finds ones the aggregators never pick up.
+
+Supported platforms: Greenhouse, Lever, Ashby, Workable, Recruitee, and SmartRecruiters.
+
+### Auto-discovery
+
+When the **Auto-discover boards** switch is on, Marple checks whether newly found companies have a supported careers board and adds verified ones to the list automatically, marked as auto.
+
+This is worth leaving on. It means the watchlist grows on its own as Marple encounters more companies, without anyone maintaining it by hand.
+
+<Card title="Next: Enrichment settings" icon="arrow-right" href="/settings/enrichment">
+  Finding the decision-maker to email.
+</Card>

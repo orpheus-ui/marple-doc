@@ -1,0 +1,104 @@
+---
+title: "Enrichment settings"
+description: "Connecting Hunter.io and Apollo.io to find decision-maker emails."
+icon: "address-book"
+---
+
+Enrichment is the step that turns "Acme Corp is hiring a VA" into "email Sarah Chen, Head of Operations, at [sarah@acme.com](mailto:sarah@acme.com)". Without it every lead arrives with an empty Contact column and you look people up by hand.
+
+## How the search works
+
+Marple tries several approaches in order until one succeeds:
+
+<Steps>
+  <Step title="Your primary provider">
+    Either Hunter.io or Apollo.io, whichever you select.
+  </Step>
+  <Step title="The other provider">
+    If the primary fails or runs out of credit, the other one is tried.
+  </Step>
+  <Step title="LinkedIn people search">
+    A last resort, and only when a LinkedIn session is configured.
+  </Step>
+  <Step title="Give up gracefully">
+    The lead still reaches your queue, flagged as missing a contact. It is not discarded.
+  </Step>
+</Steps>
+
+When a company has several email addresses, Marple prefers seniority in roughly this order: founder, CEO, owner, co-founder, president, then operations and office manager roles. These are the people who make buying decisions about administrative support.
+
+## Getting a Hunter.io key
+
+Hunter is the recommended starting point. The free tier covers 25 searches per month, which is enough to evaluate whether enrichment is worth paying for.
+
+<Steps>
+  <Step title="Create an account">
+    Go to [hunter.io](https://hunter.io) and sign up. A work email is fine.
+  </Step>
+  <Step title="Verify your email">
+    Click the link Hunter sends you. The API will not work until you do.
+  </Step>
+  <Step title="Open the API keys page">
+    Go to [hunter.io/api-keys](https://hunter.io/api-keys), or find **API** in your account menu.
+  </Step>
+  <Step title="Copy your key">
+    Hunter generates one automatically. Copy it and save it in your password manager.
+  </Step>
+  <Step title="Paste it into Marple">
+    Settings, Enrichment tab, the **Hunter.io** field. Save, then click **Test**.
+  </Step>
+  <Step title="Set Hunter as primary">
+    Choose it in the **Primary provider** dropdown.
+  </Step>
+</Steps>
+
+<Warning>
+  25 searches a month goes quickly. A single pipeline run can consume the lot. Watch your Hunter dashboard for the first week, and if you are constantly out, either upgrade or raise the minimum fit score so enrichment only runs on leads worth the credit.
+</Warning>
+
+## Getting an Apollo.io key
+
+Apollo returns richer data, often name, title, and email in one call, but its free tier is more restrictive.
+
+<Steps>
+  <Step title="Create an account">
+    Go to [apollo.io](https://www.apollo.io) and sign up.
+  </Step>
+  <Step title="Open Settings, then Integrations">
+    Find the API section. Depending on your plan this may sit under **Developer** or **API**.
+  </Step>
+  <Step title="Generate an API key">
+    Copy it and save it.
+  </Step>
+  <Step title="Paste into Marple and test">
+    Settings, Enrichment tab, the **Apollo.io** field.
+  </Step>
+</Steps>
+
+<Note>
+  Apollo's API access is not available on every plan tier and their packaging changes periodically. If you cannot find an API section, check what your current plan includes before assuming something is broken.
+</Note>
+
+## Which to choose
+
+|  | Hunter.io | Apollo.io |
+| --- | --- | --- |
+| **Free tier** | 25 searches monthly | Limited credits, plan dependent |
+| **Strength** | Reliable email lookup by company domain | Name, title, and email together |
+| **Best when** | You mainly need an address | You want richer context on the person |
+
+Configure both if you can. Marple falls back automatically, so having a second provider means credit exhaustion on one does not stop enrichment altogether.
+
+## When enrichment finds nothing
+
+Common and not a fault. Small companies often have no publicly discoverable email addresses at all.
+
+Your options on any individual lead are to click **Search again** to retry, or to find the address yourself and type it into the email field. For a small company, their own About or Team page is frequently faster than any automated lookup.
+
+<Tip>
+  A strong lead with no contact is still a strong lead. Two minutes on the company website is a reasonable trade for a well-matched prospect, and Marple accepts whatever you type.
+</Tip>
+
+<Card title="Next: Outreach settings" icon="arrow-right" href="/settings/outreach">
+  How approved emails actually get delivered.
+</Card>

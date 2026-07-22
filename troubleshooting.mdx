@@ -1,0 +1,128 @@
+---
+title: "Troubleshooting"
+description: "Fixes for the problems people actually run into."
+icon: "wrench"
+---
+
+## Signing in
+
+<AccordionGroup>
+  <Accordion title="Invalid login credentials" icon="lock">
+    Either the password is wrong or the account does not exist. Check you are using the address the invite went to. If you were invited but never set a password, find the invite email and use its link. Ask a super admin to resend if you cannot find it.
+  </Accordion>
+
+  <Accordion title="Signed in, but everything fails to load" icon="triangle-exclamation">
+    Usually the backend is down or unreachable. Report it, this is not something you can fix from your side.
+  </Accordion>
+
+  <Accordion title="Signed in, but every action gives an authorisation error" icon="clock">
+    Check your computer's clock. Marple verifies the age of your sign-in token, and a clock off by more than about thirty seconds makes every request look invalid. Turn on automatic time sync in your system settings.
+
+    On macOS: System Settings, General, Date & Time, then enable setting the time automatically.
+  </Accordion>
+
+  <Accordion title="No Settings link in the top bar" icon="gear">
+    You have a User account rather than super admin. If you should have admin access, ask an existing super admin to change your role, then sign out and back in.
+  </Accordion>
+</AccordionGroup>
+
+## The queue
+
+<AccordionGroup>
+  <Accordion title="Queue is empty" icon="inbox">
+    Check the filter bar first. If a **Clear** button with a badge is showing, filters are hiding everything, click it.
+
+    If there are no filters, no run has produced leads yet. Click the status dot, then **Run now**, and wait a minute or two.
+  </Accordion>
+
+  <Accordion title="Every lead shows a grey question mark score" icon="circle-question">
+    Classification is failing, which almost always means no working AI key. A super admin should check Settings, AI tab, and use the **Test** button. If a key was working before, it has probably hit a rate limit or run out of credit.
+  </Accordion>
+
+  <Accordion title="No leads have contacts" icon="address-book">
+    No working enrichment key. Check Settings, Enrichment tab, and test the key. If you are on Hunter's free tier, you may have used your 25 monthly searches.
+  </Accordion>
+
+  <Accordion title="Drafts are missing on some leads" icon="envelope">
+    An amber warning in the expanded lead means draft generation failed for that one, usually a temporary AI outage. Click **Regenerate** and pick a tone. If every lead is affected, it is the AI key rather than the leads.
+  </Accordion>
+
+  <Accordion title="A good company was auto-rejected" icon="circle-xmark">
+    Filter status to **Rejected**, find it, and expand it. The dashed box explains why: classified as a competitor, treated as an aggregator repost, or scored below the minimum.
+
+    If the AI got it wrong, that is worth flagging. If several genuine prospects are being rejected on score, the minimum fit score in Pipeline settings is set too high.
+  </Accordion>
+</AccordionGroup>
+
+## Sending
+
+<AccordionGroup>
+  <Accordion title="Send button is greyed out" icon="paper-plane">
+    Send needs three things: the lead must be **Approved**, it must have a contact email, and it must have a draft email. Expand the lead and check which is missing. A missing email can be added by hand, a missing draft can be regenerated.
+  </Accordion>
+
+  <Accordion title="Sending fails with an error" icon="triangle-exclamation">
+    The outreach channel is misconfigured. A super admin should open Settings, Outreach tab, and use the **Test** button on the connection.
+
+    For Gmail, the usual culprit is using a normal account password instead of an App Password. See [Outreach settings](/settings/outreach).
+  </Accordion>
+
+  <Accordion title="Emails send but land in spam" icon="filter-circle-xmark">
+    A deliverability problem rather than a Marple problem. If sending through Resend, verify your domain properly including the DNS records. If through Instantly, let the warmup process finish before sending volume. If through a personal mailbox, high volume from a normal address will get flagged.
+  </Accordion>
+
+  <Accordion title="Status never moves past Sent" icon="chart-simple">
+    Expected on SMTP and Resend, neither reports opens or replies back to Marple. Only Instantly does. Check your actual inbox for replies.
+  </Accordion>
+</AccordionGroup>
+
+## Pipeline runs
+
+<AccordionGroup>
+  <Accordion title="Status dot is red" icon="circle">
+    The last run failed. Open the Pipeline screen and check the Errors column on the most recent run, hovering it lists what went wrong. Super admins can open the run's logs with the document icon at the end of the row.
+  </Accordion>
+
+  <Accordion title="Runs complete but find nothing new" icon="magnifying-glass">
+    Some duplication is normal and healthy. Zero new leads across several runs is not.
+
+    Check the Sources column for a per-source breakdown. If one source is failing, that is your problem. If all sources are returning results but nothing survives, your job title keywords may be too narrow, or the minimum fit score too high.
+  </Accordion>
+
+  <Accordion title="LinkedIn finds nothing" icon="linkedin">
+    Either no session is configured, which is fine and other sources continue, or the session has expired. Go to Settings, LinkedIn tab, and click **Validate**. If it is expired, replace the cookies.
+  </Accordion>
+
+  <Accordion title="Run seems stuck on amber" icon="spinner">
+    Runs normally take one to two minutes but can take longer with many sources. If it is still amber after ten minutes, check the backend logs on the Pipeline screen.
+  </Accordion>
+</AccordionGroup>
+
+## The Composer
+
+<AccordionGroup>
+  <Accordion title="That's outside what I can help with here" icon="ban">
+    You asked for something deliberately out of scope: credentials, deleting data, or a topic unrelated to lead management. This is a designed boundary and cannot be worked around by rephrasing.
+  </Accordion>
+
+  <Accordion title="It misunderstood the request" icon="comment-question">
+    Rephrase more concretely. "show leads scoring 8 or higher from LinkedIn" works better than "show me the good ones". For anything precise, the filter controls are more reliable than free text.
+  </Accordion>
+
+  <Accordion title="The confirmation number looks wrong" icon="triangle-exclamation">
+    Cancel. Do not confirm and hope. Use the filter controls and the bulk approve button, where you can see exactly which leads are in scope before acting.
+  </Accordion>
+</AccordionGroup>
+
+## Still stuck
+
+Gather these before reporting a problem, they save a lot of back and forth:
+
+- What you were doing and what happened instead
+- Whether it affects one lead or all of them
+- The pipeline status colour and when the last run was
+- For super admins, a log download from the Pipeline screen set to Errors only
+
+<Card title="Glossary" icon="book" href="/glossary">
+  Every term used in Marple, defined plainly.
+</Card>

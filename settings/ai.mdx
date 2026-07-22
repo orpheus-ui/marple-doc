@@ -1,0 +1,157 @@
+---
+title: "AI settings"
+description: "Choosing a model, getting API keys step by step, and writing the AssistWorld context."
+icon: "brain"
+---
+
+The AI does three jobs in Marple: it classifies and scores every posting, it writes the outreach drafts, and it powers the Composer. Without a key here, leads still arrive but they arrive unscored and undrafted, which is not much use.
+
+Set this up first.
+
+## Choosing a provider
+
+Four options, chosen from the **Primary provider** dropdown.
+
+| Provider | Notes |
+| --- | --- |
+| **Gemini** | Google's model, with a free tier generous enough for normal use. Recommended starting point. |
+| **DeepSeek** | Inexpensive alternative. |
+| **Anthropic** | Claude. Strong writing quality, paid. |
+| **OpenRouter** | One key that reaches many different models. Useful if you want to experiment. |
+
+You can add keys for several providers. If the primary one fails or runs out of credit, Marple automatically tries the others, so a second key is cheap insurance against a run producing nothing.
+
+## Getting a Gemini key
+
+Free, and takes about two minutes.
+
+<Steps>
+  <Step title="Go to Google AI Studio">
+    Open [aistudio.google.com/apikey](https://aistudio.google.com/apikey) in your browser.
+  </Step>
+  <Step title="Sign in with a Google account">
+    Use a company account rather than a personal one, so the key survives someone leaving.
+  </Step>
+  <Step title="Accept the terms if prompted">
+    First-time users see a terms dialog. Read and accept it.
+  </Step>
+  <Step title="Click Create API key">
+    You may be asked to pick or create a Google Cloud project. If you have no preference, let it create one for you.
+  </Step>
+  <Step title="Copy the key immediately">
+    A long string starting with `AIza`. Copy it and save it in your password manager now.
+  </Step>
+  <Step title="Paste it into Marple">
+    Settings, AI tab, the **Gemini** field. Click save, then click **Test**. A success message means you are done.
+  </Step>
+</Steps>
+
+<Warning>
+  The free tier has rate limits. If runs start failing during busy periods, either enable billing on the Google Cloud project or add a second provider as a fallback.
+</Warning>
+
+## Getting an Anthropic key
+
+<Steps>
+  <Step title="Go to the Anthropic Console">
+    Open [console.anthropic.com](https://console.anthropic.com) and sign in or create an account.
+  </Step>
+  <Step title="Add credit">
+    Under **Billing**, add a payment method and buy credit. Anthropic has no free tier, so keys will not work until this is done.
+  </Step>
+  <Step title="Open API Keys">
+    Find it in the left sidebar.
+  </Step>
+  <Step title="Create Key">
+    Give it a recognisable name such as `marple-production`, so you know what to revoke later.
+  </Step>
+  <Step title="Copy it now">
+    Starts with `sk-ant-`. This is the only time it is shown.
+  </Step>
+  <Step title="Paste into Marple and test">
+    Settings, AI tab, the **Anthropic** field, then **Test**.
+  </Step>
+</Steps>
+
+## Getting an OpenRouter key
+
+OpenRouter is a single account that reaches models from many providers.
+
+<Steps>
+  <Step title="Sign up at openrouter.ai">
+    Go to [openrouter.ai](https://openrouter.ai) and create an account.
+  </Step>
+  <Step title="Add credit">
+    Under **Credits**, top up. Most models charge per use.
+  </Step>
+  <Step title="Create a key">
+    Go to [openrouter.ai/keys](https://openrouter.ai/keys) and click **Create Key**. Copy it, it starts with `sk-or-`.
+  </Step>
+  <Step title="Paste into Marple and test">
+    Settings, AI tab, the **OpenRouter** field.
+  </Step>
+  <Step title="Pick a model">
+    Once the key is saved and verified, a model picker appears below it. Choose which model to use.
+  </Step>
+</Steps>
+
+## Getting a DeepSeek key
+
+<Steps>
+  <Step title="Sign up at platform.deepseek.com">
+    Create an account at [platform.deepseek.com](https://platform.deepseek.com).
+  </Step>
+  <Step title="Add credit under Billing">
+    DeepSeek is inexpensive but not free.
+  </Step>
+  <Step title="Create an API key">
+    Under **API keys**, create one and copy it.
+  </Step>
+  <Step title="Paste into Marple and test">
+    Settings, AI tab, the **DeepSeek** field.
+  </Step>
+</Steps>
+
+## The AssistWorld context
+
+This is the most under-appreciated setting in Marple, and the one with the largest effect on email quality.
+
+Whatever you write here is given to the AI every single time it drafts an email. It is what the model knows about AssistWorld. Leave it thin and every draft will be vague. Write it well and every future draft improves at once.
+
+### What to include
+
+<AccordionGroup>
+  <Accordion title="What AssistWorld actually does" icon="building">
+    Connecting US businesses with pre-vetted virtual assistants from Indonesia and the Philippines, covering sourcing, vetting, onboarding, and ongoing support.
+  </Accordion>
+
+  <Accordion title="Real pricing" icon="dollar-sign">
+    Actual numbers, or at least an honest range. Concrete figures make emails far more persuasive than "competitive rates".
+  </Accordion>
+
+  <Accordion title="What the VAs specialise in" icon="list-check">
+    Executive assistance, admin support, customer service, data management, and anything else genuinely offered.
+  </Accordion>
+
+  <Accordion title="Time to placement" icon="clock">
+    How long from first conversation to someone starting. A specific answer beats a vague one.
+  </Accordion>
+
+  <Accordion title="What makes AssistWorld different" icon="star">
+    The honest answer, not marketing copy. The AI will repeat whatever you write, so overclaiming here becomes overclaiming in every email.
+  </Accordion>
+</AccordionGroup>
+
+Edit the text and click **Save context**.
+
+### Uploading a file instead
+
+If you maintain a longer document, click **Upload MD** and select a Markdown file. An uploaded file overrides the text box until you click **Clear**. A badge reading "MD file active" shows when a file is in use.
+
+<Tip>
+  If drafts read as generic, resist the urge to fix them one at a time. Improve the context, regenerate a couple of drafts, and see whether the whole batch got better. Fixing the source is much cheaper than fixing the output.
+</Tip>
+
+<Card title="Next: Enrichment settings" icon="arrow-right" href="/settings/enrichment">
+  Finding the people to email.
+</Card>

@@ -1,0 +1,81 @@
+---
+title: "Settings overview"
+description: "What lives in Settings, who can reach it, and how keys are stored."
+icon: "sliders"
+---
+
+Settings is where Marple is configured: what it searches for, how strictly it scores, which outside services it uses, and who has access.
+
+Only **super admins** see this screen. If **Settings** is missing from your top bar, you have a User account. That is deliberate, not a fault.
+
+## The six tabs
+
+<CardGroup cols={2}>
+  <Card title="Pipeline" icon="timer" href="/settings/pipeline">
+    Run frequency, score thresholds, search keywords, and which company career pages get checked.
+  </Card>
+
+  <Card title="AI" icon="brain" href="/settings/ai">
+    Which language model does the thinking, and the AssistWorld background it writes from.
+  </Card>
+
+  <Card title="Enrichment" icon="address-book" href="/settings/enrichment">
+    The services that find decision-maker names and email addresses.
+  </Card>
+
+  <Card title="Outreach" icon="paper-plane" href="/settings/outreach">
+    How approved emails actually get delivered.
+  </Card>
+
+  <Card title="LinkedIn" icon="linkedin" href="/settings/linkedin">
+    Session management for the LinkedIn job source.
+  </Card>
+
+  <Card title="Users" icon="users" href="/settings/users">
+    Invite teammates and manage roles.
+  </Card>
+</CardGroup>
+
+## Changes take effect immediately
+
+Everything on this screen is live. There is no save-and-restart, no deployment, no waiting. Change the minimum fit score and the next run uses it. Add a keyword and the next run searches for it.
+
+This makes experimentation cheap. It also means a careless change takes effect straight away, so when you adjust something meaningful such as scoring or search terms, trigger a manual run afterwards and look at what comes back.
+
+## How API keys are handled
+
+Marple connects to outside services, and each needs a key. A few things are worth knowing before you paste any of them in.
+
+<AccordionGroup>
+  <Accordion title="Keys are encrypted and never shown again" icon="lock">
+    Once saved, a key is encrypted into secure storage. No screen in Marple will display it back to you, and no part of the system returns it. You will see whether a key is configured, never what it is.
+  </Accordion>
+
+  <Accordion title="Keep your own copy" icon="copy">
+    Because Marple will not show a key again, store it in your team password manager when you first create it. If you lose it, you generate a fresh one at the provider.
+  </Accordion>
+
+  <Accordion title="Test after saving" icon="flask">
+    Most keys have a **Test** button. Use it every time. A typo produces a key that looks fine and silently fails during runs, which is a slow and confusing way to discover the problem.
+  </Accordion>
+
+  <Accordion title="The Composer cannot reach them" icon="shield">
+    Asking the Composer about keys or credentials returns an out-of-scope response. There is no phrasing that works around this.
+  </Accordion>
+</AccordionGroup>
+
+## What Marple needs to work
+
+| Capability | Requires | Without it |
+| --- | --- | --- |
+| Finding job postings | Nothing | Works out of the box on public job sources. |
+| Scoring and drafting | An AI provider key | Leads arrive with a `?` score and no draft. |
+| Finding contact emails | An enrichment key | Leads arrive with no contact. You add emails manually. |
+| Sending | An outreach channel | You can approve but not send. |
+| LinkedIn as a source | A LinkedIn session | Other sources still run, LinkedIn is skipped. |
+
+Notice that Marple degrades gracefully rather than failing. Missing a key means losing one capability, not breaking the system. That makes it reasonable to set things up in stages.
+
+<Card title="Recommended setup order" icon="list-ol" href="/settings/ai">
+  Start with AI, since scoring and drafts are what make the queue useful. Then enrichment, then outreach.
+</Card>

@@ -1,0 +1,83 @@
+---
+title: "Users and roles"
+description: "Inviting teammates, changing roles, and removing access."
+icon: "users"
+---
+
+The Users tab is where you control who can get into Marple and what they can do once inside.
+
+## The two roles
+
+<CardGroup cols={2}>
+  <Card title="User" icon="user">
+    The full Leads queue: review, edit drafts, approve, reject, send. Can trigger runs, use the Composer, and view the Pipeline screen. Cannot see Settings.
+  </Card>
+
+  <Card title="Super admin" icon="user-shield">
+    Everything a User can do, plus the Settings screen: API keys, search configuration, scoring thresholds, and user management.
+  </Card>
+</CardGroup>
+
+Most of your team should be Users. The distinction is not about seniority, it is that Settings holds credentials and changes there affect everyone. Fewer people with that access means fewer accidents.
+
+## Inviting someone
+
+<Steps>
+  <Step title="Go to Settings, Users tab">
+    Click **Invite user**.
+  </Step>
+  <Step title="Enter their email address">
+    Their work address. This becomes their login.
+  </Step>
+  <Step title="Add their full name">
+    Optional but helpful, it makes the user list readable later.
+  </Step>
+  <Step title="Click Send invite">
+    They receive an email with a link to set their password.
+  </Step>
+</Steps>
+
+New accounts always start as **User**. If someone needs super admin, promote them after they have accepted, using the role dropdown on their row.
+
+<Note>
+  Until an invite is accepted the row shows "Pending invite" rather than a name. If someone has not received theirs, check their spam folder before resending.
+</Note>
+
+## Changing a role
+
+Use the dropdown on the person's row. Changes apply immediately, though the person may need to sign out and back in before a newly granted Settings link appears in their top bar.
+
+## Removing someone
+
+Click the bin icon on their row and confirm. Their access is revoked at once.
+
+Two restrictions exist:
+
+- You cannot remove yourself
+- You cannot remove another super admin
+
+To remove a super admin, first demote them to User using the role dropdown, then delete them. This is deliberate friction, it stops an admin account being removed by accident or in a single hasty click.
+
+<Warning>
+  When someone leaves AssistWorld, remove their Marple account promptly. Their session persists otherwise, and Marple holds real contact data for real people at real companies.
+</Warning>
+
+## Practical advice
+
+<AccordionGroup>
+  <Accordion title="Keep at least two super admins" icon="user-shield">
+    One person holding sole Settings access is a single point of failure. If they are on holiday when a key expires, nobody can fix it.
+  </Accordion>
+
+  <Accordion title="Review the list periodically" icon="list-check">
+    Every few months, check the user list against who actually still needs access. Stale accounts accumulate quietly.
+  </Accordion>
+
+  <Accordion title="Use company accounts for API keys" icon="key">
+    Keys created under someone's personal Google or Hunter account stop working when that person leaves. Register the outside services under company accounts.
+  </Accordion>
+</AccordionGroup>
+
+<Card title="Next: Troubleshooting" icon="arrow-right" href="/troubleshooting">
+  Fixes for the problems people actually hit.
+</Card>

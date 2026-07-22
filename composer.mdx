@@ -1,0 +1,78 @@
+---
+title: "The Composer"
+description: "Ask for what you want in plain English instead of clicking filters."
+icon: "sparkles"
+---
+
+The Composer is the bar pinned to the bottom of the Leads and Pipeline screens. Type a request in ordinary English and it does the equivalent clicking for you.
+
+Press `⌘K` on a Mac or `Ctrl+K` on Windows to open and focus it from anywhere.
+
+## What it can do
+
+<AccordionGroup>
+  <Accordion title="Filter the table" icon="filter">
+    _"show leads scoring 8 or higher"_, _"urgent leads from LinkedIn"_, _"anything from Acme"_. The table above updates in place and the Composer confirms what it applied.
+  </Accordion>
+
+  <Accordion title="Answer questions about a company" icon="clock-rotate-left">
+    _"have we contacted Acme?"_ returns a small panel showing whether outreach went out, to which address, and when.
+  </Accordion>
+
+  <Accordion title="Summarise the pipeline" icon="chart-simple">
+    _"what's the pipeline status?"_ returns counts by status as clickable tiles. Click any tile to jump to that slice of the queue.
+  </Accordion>
+
+  <Accordion title="Look up a specific lead" icon="file-magnifying-glass">
+    Ask about one company and you get a compact card with its score, status, and role, plus a link into the queue.
+  </Accordion>
+
+  <Accordion title="Approve, reject, or regenerate" icon="circle-check">
+    _"approve everything scoring 9 or above"_, _"regenerate that draft in a casual tone"_. These always ask for confirmation first.
+  </Accordion>
+
+  <Accordion title="Start a pipeline run" icon="play">
+    _"run the pipeline"_ triggers a scrape, the same as clicking **Run now**.
+  </Accordion>
+</AccordionGroup>
+
+## Anything that changes data asks first
+
+Write actions, meaning approve, reject, regenerate, and trigger a run, never happen on the strength of your typed message alone. A confirmation dialog appears stating exactly what will happen and how many leads are involved. Nothing occurs until you click **Confirm**.
+
+This is deliberate. Interpreting free text is imprecise, so the confirmation step is what stops a misread request from approving fifty leads you meant to exclude.
+
+<Warning>
+  Read the number in the confirmation dialog rather than assuming it matches what you asked for. If it looks wrong, cancel and either rephrase or use the filter controls directly.
+</Warning>
+
+## What it deliberately will not do
+
+The Composer refuses several categories outright, and when it does you get a short line reading _"That's outside what I can help with here."_ No apology, no lecture.
+
+It refuses:
+
+- Anything touching API keys, passwords, cookies, or credentials
+- Anything that would delete data
+- Anything unrelated to lead management
+
+The first two are security boundaries. The Composer cannot read or reveal a stored key even if you ask directly, and there is no way to phrase a request that gets around it. The third is just scope, it is not a general-purpose assistant and it will not write your Slack messages.
+
+## Referring to what you are looking at
+
+The Composer knows which screen you are on and which filters are active, so phrases like _"approve these"_ or _"reject that one"_ resolve against your current view. If the reference is genuinely ambiguous it will ask rather than guess.
+
+## Practical notes
+
+- Conversation history is kept only while the page is open. Refreshing clears it.
+- The eraser icon clears the conversation without refreshing.
+- Clicking the **Composer** label collapses and expands the panel.
+- Filter requests change the page address, so the resulting view is bookmarkable exactly like a manually filtered one.
+
+<Tip>
+  The Composer is fastest for filters that would take several clicks, such as _"urgent leads scoring 7 or higher from Greenhouse"_. For a single filter, the controls are quicker. Use whichever suits the moment, they produce identical results.
+</Tip>
+
+<Card title="Next: the Pipeline screen" icon="arrow-right" href="/pipeline">
+  Counts, run history, and how to tell whether things are working.
+</Card>

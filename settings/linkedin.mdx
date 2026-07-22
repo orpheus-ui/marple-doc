@@ -1,0 +1,93 @@
+---
+title: "LinkedIn settings"
+description: "Adding and maintaining LinkedIn sessions for the LinkedIn job source."
+icon: "linkedin"
+---
+
+LinkedIn is one of Marple's job sources, and the only one needing manual setup. It is entirely optional. Without it the pipeline runs normally and simply skips LinkedIn.
+
+## Why this is fiddly
+
+LinkedIn has no public API for job searching, so Marple browses the site the way a person would, using a signed-in session. That means giving it session cookies from a logged-in account, which is a manual copy-paste job and needs repeating when the session expires.
+
+<Warning>
+  Use a dedicated account, never a personal or company one that matters. LinkedIn may restrict accounts for automated access. Marple only reads, it never sends connection requests or messages, but you should still not risk an account you care about.
+</Warning>
+
+## What Marple does with the session
+
+Read-only searching, specifically job searches and looking up people at a company when enrichment needs a fallback. No messaging, no connection requests, no profile changes, and no automated login. Cookies are supplied by you, not obtained by the system.
+
+If LinkedIn presents a login wall or a captcha, Marple detects it and marks the session expired rather than pushing through.
+
+## Adding a session
+
+<Steps>
+  <Step title="Log into LinkedIn with your dedicated account">
+    Use Chrome, in a normal window rather than incognito.
+  </Step>
+  <Step title="Install a cookie export extension">
+    EditThisCookie is the usual choice. Any extension exporting cookies as JSON works.
+  </Step>
+  <Step title="Export the LinkedIn cookies">
+    With a LinkedIn page open, click the extension icon and choose export. It copies a block of JSON to your clipboard.
+  </Step>
+  <Step title="Open Marple, Settings, LinkedIn tab">
+    Click **Add session**.
+  </Step>
+  <Step title="Give it a label">
+    Something identifying which account it is, such as `Dummy Account 1`.
+  </Step>
+  <Step title="Paste the JSON and save">
+    The cookies are encrypted on save and never shown again.
+  </Step>
+</Steps>
+
+### Doing it without an extension
+
+If you cannot install extensions, the cookies are visible in Chrome's developer tools under **Application**, then **Cookies**, then the LinkedIn entry. Assembling valid JSON by hand is tedious and error-prone, so the extension route is strongly preferred.
+
+## Keeping sessions alive
+
+The sessions table shows each session's label, status, when it was last used, and when it was last checked.
+
+| Status | Meaning |
+| --- | --- |
+| **Active** | Working. |
+| **Expired** | LinkedIn no longer accepts these cookies. Replace them. |
+| **Banned** | LinkedIn has restricted the account. Use a different one. |
+
+Click **Validate** on any row to check it immediately. The result tells you whether the session is alive or needs replacing.
+
+### When a session expires
+
+Sessions do not last forever. Expect to redo this periodically.
+
+<Steps>
+  <Step title="Log into LinkedIn again with the same account">
+    A fresh login produces fresh cookies.
+  </Step>
+  <Step title="Export the cookies again">
+    Same extension, same process.
+  </Step>
+  <Step title="Delete the old session in Marple">
+    The bin icon on its row.
+  </Step>
+  <Step title="Add a new one with the fresh cookies">
+    Same label is fine.
+  </Step>
+</Steps>
+
+<Tip>
+  Adding two or three sessions from different accounts spreads the load. Marple rotates between them, using whichever was least recently used, which reduces the chance of any single account being flagged.
+</Tip>
+
+## Deciding whether to bother
+
+LinkedIn does surface roles that never reach public job boards, so it genuinely widens coverage. Against that, it needs periodic manual maintenance and carries some account risk.
+
+If your other sources are producing enough leads to keep the team busy, skipping LinkedIn is a perfectly reasonable choice. Turn it on when you need more volume rather than by default.
+
+<Card title="Next: Users" icon="arrow-right" href="/settings/users">
+  Inviting teammates and managing roles.
+</Card>

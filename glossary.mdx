@@ -1,0 +1,105 @@
+---
+title: "Glossary"
+description: "Every term used in Marple, defined plainly."
+icon: "book-open"
+---
+
+## Lead terms
+
+**Lead** One company that posted a job Marple found. Everything in the queue is a lead.
+
+**Classification** What kind of organisation posted the job. One of target, competitor, or aggregator.
+
+**Target** A real US business hiring an assistant for itself. The only kind worth contacting.
+
+**Competitor** Another VA agency, staffing firm, BPO, or recruiter. Auto-rejected.
+
+**Aggregator** A job board reposting someone else's listing rather than the employer itself. Auto-rejected.
+
+**Fit score** A 1 to 10 rating of how well the company matches what AssistWorld offers. Green at 8 and above, amber 5 to 7, red below 5. It rates the posting, not eligibility, so a competitor can still score highly.
+
+**Pain signals** Short tags marking evidence the company is feeling the problem AssistWorld solves. Useful as talking points in your email.
+
+**URGENT** An orange badge meaning the role has been open longer than the urgency threshold, 21 days by default. The company has tried and failed to fill it, which makes them receptive.
+
+**Decision-maker** The person to email. Marple prefers founders, CEOs, owners, and operations leads, as these are the people who buy administrative support.
+
+**Enrichment** The step that finds a decision-maker's name, title, and email address.
+
+## Status terms
+
+**New** Fresh from a run, waiting for review. Your inbox.
+
+**Approved** You said yes. Sendable, but nothing has gone out.
+
+**Sent** The email has left.
+
+**Opened** The recipient opened it. Only tracked on channels that report opens.
+
+**Replied** They wrote back. The reply goes to your real inbox, not into Marple.
+
+**Converted** Became a customer. Set manually.
+
+**Rejected** Ruled out, either by you or automatically. Never deleted, always browsable.
+
+## Pipeline terms
+
+**Pipeline** The whole automated process: discover, dedupe, classify, enrich, draft, review, send, track.
+
+**Run** One execution of the pipeline. Runs happen on a schedule or when someone clicks **Run now**.
+
+**Scrape interval** Hours between automatic runs. Six by default.
+
+**Source** Where a posting came from: LinkedIn, a job board, or a company career page.
+
+**Dedupe** Dropping postings already in the system so the same company does not appear twice.
+
+**Duplicates** The count of postings dropped for that reason in a run. A high number is normal and healthy.
+
+**Minimum fit score** The cutoff below which target leads are auto-rejected before reaching your queue.
+
+**Max posting age** Postings older than this are skipped at collection time. Zero means no limit.
+
+**Board auto-discovery** When on, newly encountered companies are checked for a supported careers board and added to the watchlist automatically.
+
+## Tools and services
+
+**ATS** Applicant Tracking System, the software companies use to post jobs and manage applicants. Greenhouse, Lever, Ashby, Workable, Recruitee, and SmartRecruiters are supported. Each exposes only one company at a time, which is why Marple keeps a watchlist rather than searching across them.
+
+**Hunter.io** A service that finds email addresses associated with a company domain. The default enrichment provider.
+
+**Apollo.io** An alternative enrichment service returning richer data, often name, title, and email together.
+
+**Adzuna** A live job-search index. Useful because it returns genuinely new postings each run, where several free aggregators return the same recent set.
+
+**Instantly.ai** A cold outreach platform handling follow-up sequences, throttling, inbox rotation, and open and reply tracking.
+
+**Resend** An email API for sending from a domain you verify. Good deliverability, no sequences.
+
+**SMTP** The standard protocol for sending email. In Marple, this means sending from your own real mailbox.
+
+**App Password** A special 16-character password Google issues for applications that cannot use its normal sign-in. Required for Gmail sending, and only available once 2-Step Verification is on.
+
+## AI terms
+
+**LLM** Large Language Model, the AI doing the classifying, drafting, and Composer work.
+
+**Provider** Who supplies the model. Gemini, DeepSeek, Anthropic, or OpenRouter.
+
+**Fallback** What gets tried when the first choice fails. Applies to AI providers, enrichment services, and outreach channels alike.
+
+**AssistWorld context** The background about AssistWorld given to the AI every time it drafts an email. The single biggest lever on draft quality.
+
+**Tone** The style of a regenerated draft: professional, casual, or direct.
+
+**Composer** The chat bar at the bottom of the screen. Converts plain English into filters, questions, and actions.
+
+## Account terms
+
+**User** Standard account. Full access to the queue, no access to Settings.
+
+**Super admin** Administrator account. Everything a User can do, plus Settings.
+
+**Session** Either your signed-in state in Marple, or a set of LinkedIn cookies used for that job source. Context makes clear which is meant.
+
+**Vault** The encrypted store holding API keys and cookies. Nothing put there is ever displayed again.
