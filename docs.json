@@ -3,9 +3,9 @@
   "theme": "maple",
   "name": "Marple",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#6315a3",
+    "light": "#7106c9",
+    "dark": "#4f1480"
   },
   "favicon": "/favicon.svg",
   "navigation": {
