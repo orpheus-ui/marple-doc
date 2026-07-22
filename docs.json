@@ -105,5 +105,11 @@
   "banner": {
     "content": "v0.1 beta - expect bugs. Please report any you find.",
     "dismissible": true
+  },
+  "interaction": {
+    "drilldown": true
+  },
+  "metadata": {
+    "timestamp": true
   }
 }
