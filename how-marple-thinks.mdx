@@ -10,18 +10,24 @@ Every lead in your queue has been judged by AI before you see it. Understanding 
 
 Before scoring anything, Marple asks what kind of organisation posted this job. There are three possible answers.
 
+<Card title="Target" icon="check-circle">
+  A real US business hiring a VA, EA, or admin assistant for themselves. This is who AssistWorld sells to. Only targets reach your queue as live prospects.
+</Card>
+
+<Columns cols={2}>
+  <Column>
+    <Card title="Competitor" icon="check-circle">
+      Another VA agency, staffing firm, BPO, or recruiter. Automatically rejected, never contacted.
+    </Card>
+  </Column>
+  <Column>
+    <Card title="Aggregator" icon="sparkles">
+      A job board or listing site reposting someone else's role, not the actual employer. Automatically rejected.
+    </Card>
+  </Column>
+</Columns>
+
 <CardGroup cols={3}>
-  <Card title="Target" icon="circle-check" horizontal>
-    A real US business hiring a VA, EA, or admin assistant for themselves. This is who AssistWorld sells to. Only targets reach your queue as live prospects.
-  </Card>
-
-  <Card title="Competitor" icon="circle-xmark" horizontal>
-    Another VA agency, staffing firm, BPO, or recruiter. Automatically rejected, never contacted.
-  </Card>
-
-  <Card title="Aggregator" icon="circle-minus" horizontal>
-    A job board or listing site reposting someone else's role, not the actual employer. Automatically rejected.
-  </Card>
 </CardGroup>
 
 You will see this as a coloured badge when you expand a lead. Green is target, red is competitor, grey is aggregator.
