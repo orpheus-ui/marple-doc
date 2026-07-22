@@ -94,6 +94,8 @@ When the **Auto-discover boards** switch is on, Marple checks whether newly foun
 
 This is worth leaving on. It means the watchlist grows on its own as Marple encounters more companies, without anyone maintaining it by hand.
 
+**Discovery probes per run** controls how many newly found companies get checked each run, 12 by default. Raise it if a wide net (Adzuna especially) is turning up new companies faster than the default budget can probe. Each probe costs a few HTTP requests and sometimes one small AI call, so pushing this very high has a real, if small, cost.
+
 <Card title="Next: Enrichment settings" icon="arrow-right" href="/settings/enrichment">
   Finding the decision-maker to email.
 </Card>
